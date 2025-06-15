@@ -1,0 +1,59 @@
+.todo-list-container {
+    padding: 1.5rem 0;
+  }
+  
+  .todo-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .todo-list-header h2 {
+    color: #4a90e2;
+  }
+  
+  .filter-controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .filter-button {
+    background-color: #f5f7fa;
+    color: #666;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .filter-button.active {
+    background-color: #4a90e2;
+    color: white;
+  }
+  
+  .todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .todo-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .clear-completed-button {
+    background: none;
+    color: #777;
+    font-size: 0.9rem;
+  }
+  
+  .clear-completed-button:hover {
+    color: #e74c3c;
+    text-decoration: underline;
+  }

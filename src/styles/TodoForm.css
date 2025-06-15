@@ -1,0 +1,32 @@
+.todo-form-container {
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .todo-form-container h2 {
+    margin-bottom: 1rem;
+    color: #4a90e2;
+  }
+  
+  .todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .form-group {
+    width: 100%;
+  }
+  
+  .add-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 0.75rem;
+    width: 100%;
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+  
+  .add-button:hover {
+    background-color: #43a047;
+  }
