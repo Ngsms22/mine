@@ -1,111 +1,141 @@
+/* styles/navbar.css */
+
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: rgba(14, 14, 14, 0.95);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-  padding: 1rem 0;
-  transition: all 0.3s ease;
+    background-color: #ffffff; /* Light background */
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar.scrolled {
-  background-color: rgba(14, 14, 14, 0.98);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent on scroll */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px); /* Adds a subtle blur effect */
 }
 
 .nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fefefe;
-  text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo-icon {
+    background-color: #007bff; /* Primary color for icon */
+    color: #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.logo-text {
+    color: #333;
 }
 
 .nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin-left: 2.5rem;
 }
 
 .nav-link {
-  color: #fefefe;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-.nav-link:hover {
-  color: #1c584c;
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
 .nav-link::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background-color: #1c584c;
-  transition: width 0.3s ease;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    transition: width 0.3s ease;
 }
 
+.nav-link:hover,
+.nav-link.active {
+    color: #007bff;
+}
+
+.nav-link.active::after,
 .nav-link:hover::after {
-  width: 100%;
+    width: 100%;
 }
 
 .nav-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: #333;
+    z-index: 1001; /* Ensure toggle button is above menu */
 }
 
-.nav-toggle span {
-  width: 25px;
-  height: 3px;
-  background-color: #fefefe;
-  margin: 3px 0;
-  transition: 0.3s;
-}
-
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .nav-menu {
-    position: fixed;
-    left: -100%;
-    top: 70px;
-    flex-direction: column;
-    background-color: rgba(14, 14, 14, 0.98);
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-    padding: 2rem 0;
-  }
+    .nav-toggle {
+        display: block;
+    }
 
-  .nav-menu.active {
-    left: 0;
-  }
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden by default */
+        width: 70%;
+        max-width: 300px; /* Limit mobile menu width */
+        height: 100%;
+        background-color: #f8f8f8; /* A slightly off-white for the mobile menu */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
 
-  .nav-toggle {
-    display: flex;
-  }
+    .nav-menu.active {
+        right: 0; /* Slide in */
+    }
 
-  .nav-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
+    .nav-menu li {
+        margin: 1.5rem 0;
+    }
 
-  .nav-toggle.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
+    .nav-link {
+        font-size: 1.3rem;
+        padding: 0.8rem 0;
+    }
 
-  .nav-toggle.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
+    .nav-link::after {
+        height: 3px;
+    }
 }
