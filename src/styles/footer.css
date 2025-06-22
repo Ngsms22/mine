@@ -15,19 +15,19 @@
 
 .footer-content {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow columns to wrap */
     justify-content: space-between;
-    gap: 2.5rem;
+    gap: 2.5rem; /* Space between sections */
     margin-bottom: 3rem;
 }
 
 .footer-section {
-    flex: 1;
-    min-width: 250px;
+    flex: 1; /* Distribute space evenly */
+    min-width: 250px; /* Minimum width for sections before wrapping */
 }
 
 .footer-about {
-    flex: 1.5;
+    flex: 1.5; /* Give more space to the about section */
 }
 
 .footer-logo {
@@ -142,33 +142,52 @@
 /* Mobile Responsiveness */
 @media (max-width: 992px) {
     .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 3rem;
+        flex-direction: column; /* Stack sections vertically */
+        gap: 3rem; /* Keep a decent gap between stacked sections */
     }
 
     .footer-section {
         min-width: unset;
         width: 100%;
+        text-align: center; /* Center text within each section */
     }
 
-    .footer-logo,
+    .footer-logo {
+        justify-content: center; /* Center logo container */
+    }
+
     .footer-heading {
-        justify-content: center;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
-    .footer-heading::after {
+        /* Already centered by parent text-align, but ensure underline also centers */
         margin-left: auto;
         margin-right: auto;
     }
 
+    .footer-heading::after {
+        margin-left: auto; /* Center the underline */
+        margin-right: auto;
+    }
+
+    .social-links {
+        justify-content: center; /* Center social links */
+    }
+
     .footer-links,
     .footer-contact {
-        align-items: center;
+        /* For lists, ensure content is visually centered while still using flex for icons */
+        align-items: flex-start; /* Align list items to start if they have icons */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the list items themselves */
+    }
+
+    .footer-contact li {
+        justify-content: center; /* Center content of contact list items */
+        text-align: center;
+    }
+
+    .footer-contact li span {
+        text-align: left; /* Keep text left-aligned within its own space */
+        flex-grow: 1; /* Allow text to take space */
     }
 }
 
@@ -207,5 +226,6 @@
 
     .footer-contact .contact-icon {
         font-size: 1rem;
+        margin-right: 0.5rem; /* Reduce margin for smaller screens */
     }
 }
