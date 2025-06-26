@@ -34,18 +34,15 @@ const Header = () => {
                             View My Work
                             <FaArrowRight className="arrow-icon" />
                         </a>
-                        <a href="#contact" className="btn btn-secondary">
-                            Get In Touch
-                            <FaArrowRight className="arrow-icon" />
-                        </a>
                     </div>
                 </div>
 
                 <div className="header-image">
                     <div className="profile-image-container">
                         <div className="profile-image" role="img" aria-label="Sabastine Ngam profile picture"></div>
-                        <div className="image-border"></div>
-                        <div className="image-dots"></div>
+                        {/* The elements for the border are now within the container */}
+                        <div className="image-square-border"></div>
+                        <div className="image-square-dots"></div>
                     </div>
                 </div>
             </div>

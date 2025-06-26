@@ -1,30 +1,58 @@
 /* styles/header.css */
 
 .header {
-    min-height: 100vh; /* Full viewport height */
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e0e6ec 100%); /* Soft gradient background */
+    background-color: #ffffff;
     padding: 4rem 1.5rem;
-    overflow: hidden; /* Prevent overflow from animations */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background design elements */
+.header::before,
+.header::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 123, 255, 0.05);
+    border-radius: 50%; /* Still circular for these background elements */
+    filter: blur(80px);
+    z-index: 0;
+}
+
+.header::before {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: -5%;
+}
+
+.header::after {
+    width: 250px;
+    height: 250px;
+    bottom: 5%;
+    right: -5%;
 }
 
 .header-content {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 3rem; /* Space between text and image */
+    gap: 4rem;
+    position: relative;
+    z-index: 1;
 }
 
 .header-text {
     flex: 1;
-    min-width: 300px; /* Ensure text doesn't get too narrow */
-    opacity: 0; /* Hidden by default for animation */
-    transform: translateY(20px); /* Slide up for animation */
+    min-width: 300px;
+    opacity: 0;
+    transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
@@ -34,30 +62,42 @@
 }
 
 .header-subtitle {
-    font-size: 1.2rem;
-    color: #007bff; /* Primary color */
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    color: #007bff;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.5px;
 }
 
 .header-title {
-    font-size: 3.5rem;
-    font-weight: 800;
+    font-size: 4rem;
+    font-weight: 900;
     line-height: 1.1;
-    color: #2c3e50; /* Darker heading color */
-    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1.8rem;
+    /* New format: Sabastine blue, Ngam dark, on a single line */
+    display: flex; /* Use flex to control alignment of spans */
+    gap: 0.7rem; /* Space between the two names */
+    align-items: baseline; /* Align based on baseline */
 }
 
 .header-title span:first-child {
-    display: block; /* Each name on a new line */
+    color: #007bff; /* Sabastine in primary blue */
+    display: inline; /* Keep on the same line */
 }
 
+.header-title span:last-child {
+    color: #2c3e50; /* Ngam in dark heading color */
+    display: inline; /* Keep on the same line */
+}
+
+
 .header-description {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: #555;
-    line-height: 1.6;
-    max-width: 550px;
-    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 3rem;
 }
 
 .header-description strong {
@@ -67,20 +107,20 @@
 
 .header-buttons {
     display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: 1.8rem;
+    flex-wrap: wrap;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
-    padding: 0.9rem 1.8rem;
-    border-radius: 50px; /* Pill-shaped buttons */
+    padding: 1rem 2rem;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.05rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 .btn-primary {
@@ -92,32 +132,32 @@
 .btn-primary:hover {
     background-color: #0056b3;
     border-color: #0056b3;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
 }
 
 .btn-secondary {
     background-color: #fff;
-    color: #2c3e50; /* Changed to a dark, clearly visible color */
+    color: #2c3e50;
     border: 2px solid #007bff;
 }
 
 .btn-secondary:hover {
-    background-color: #f0f4f8; /* Lighter background on hover */
-    color: white;
+    background-color: #e6f2ff;
+    color: #0056b3;
     border-color: #0056b3;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
 }
 
 .arrow-icon {
-    margin-left: 0.7rem;
-    font-size: 0.9rem;
+    margin-left: 0.8rem;
+    font-size: 1rem;
     transition: transform 0.3s ease;
 }
 
 .btn:hover .arrow-icon {
-    transform: translateX(5px);
+    transform: translateX(6px);
 }
 
 .header-image {
@@ -127,9 +167,9 @@
     align-items: center;
     min-width: 300px;
     position: relative;
-    opacity: 0; /* Hidden by default for animation */
-    transform: translateY(20px); /* Slide up for animation */
-    transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s; /* Delayed animation */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
 }
 
 .header.loaded .header-image {
@@ -138,52 +178,55 @@
 }
 
 .profile-image-container {
-    width: 350px; /* Fixed size for the container */
-    height: 350px;
+    width: 380px;
+    height: 380px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* The circular profile image is inside this container */
 }
 
 .profile-image {
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Take full width of container */
+    height: 100%; /* Take full height of container */
     background-color: #ccc; /* Placeholder for actual image */
-    border-radius: 50%;
+    border-radius: 50%; /* Still circular */
     overflow: hidden;
     position: relative;
     z-index: 2;
-    /* For a real image, use:*/
-    background-image: url('/public/assets/picture.jpg');
+    background-image: url("/public/assets/picture.jpg");
     background-size: cover;
     background-position: center;
-    
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+   
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.image-border {
+/* NEW: Square border around the circular image */
+.image-square-border {
     position: absolute;
-    width: 110%; /* Larger than the image */
+    width: 110%; /* Slightly larger than the image container */
     height: 110%;
-    border: 3px solid #007bff;
-    border-radius: 50%;
+    border: 2px solid #007bff; /* Thinner border */
+    border-radius: 0; /* Square corners */
     z-index: 1;
-    animation: rotateBorder 10s linear infinite; /* Subtle rotation animation */
+    animation: rotateSquareBorder 15s linear infinite; /* Adjust animation speed */
 }
 
-.image-dots {
+/* NEW: Dotted square border */
+.image-square-dots {
     position: absolute;
     width: 120%; /* Even larger */
     height: 120%;
-    border-radius: 50%;
+    border-radius: 0; /* Square corners */
     z-index: 0;
-    background-image: radial-gradient(circle, #a7d9ff 1px, transparent 1px);
-    background-size: 15px 15px; /* Size of the dots pattern */
-    animation: rotateDots 15s linear infinite reverse; /* Subtle counter-rotation */
+    background-image: radial-gradient(circle, #a7d9ff 1px, transparent 1px); /* Smaller dots for lighter feel */
+    background-size: 12px 12px; /* Denser pattern */
+    animation: rotateSquareDots 20s linear infinite reverse; /* Adjust animation speed */
 }
 
-@keyframes rotateBorder {
+/* Animation for the square borders */
+@keyframes rotateSquareBorder {
     from {
         transform: rotate(0deg);
     }
@@ -192,7 +235,7 @@
     }
 }
 
-@keyframes rotateDots {
+@keyframes rotateSquareDots {
     from {
         transform: rotate(0deg);
     }
@@ -204,8 +247,9 @@
 /* Mobile Responsiveness */
 @media (max-width: 992px) {
     .header-content {
-        flex-direction: column-reverse; /* Image above text on smaller screens */
+        flex-direction: column-reverse;
         text-align: center;
+        gap: 2.5rem;
     }
 
     .header-text {
@@ -213,32 +257,63 @@
     }
 
     .header-title {
-        font-size: 2.8rem;
+        font-size: 3rem;
+        /* Revert to block display for mobile for better stacking */
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+    }
+
+    .header-title span:first-child,
+    .header-title span:last-child {
+        display: block; /* Stack on mobile */
+    }
+
+    .header-subtitle {
+        font-size: 1.1rem;
     }
 
     .header-description {
         margin-left: auto;
         margin-right: auto;
+        font-size: 1.05rem;
     }
 
     .header-buttons {
-        justify-content: center; /* Center buttons */
+        justify-content: center;
+        gap: 1.2rem;
     }
 
     .profile-image-container {
-        width: 280px;
-        height: 280px;
+        width: 300px;
+        height: 300px;
         margin-bottom: 2rem;
     }
 
-    .image-border {
-        width: 108%;
-        height: 108%;
+    .image-square-border {
+        width: 107%;
+        height: 107%;
     }
 
-    .image-dots {
-        width: 115%;
-        height: 115%;
+    .image-square-dots {
+        width: 112%;
+        height: 112%;
+    }
+
+    .header::before {
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        filter: blur(60px);
+    }
+
+    .header::after {
+        bottom: 0;
+        right: 0;
+        width: 180px;
+        height: 180px;
+        filter: blur(60px);
     }
 }
 
@@ -248,7 +323,7 @@
     }
 
     .header-title {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
 
     .header-subtitle {
@@ -260,19 +335,25 @@
     }
 
     .header-buttons {
-        flex-direction: column; /* Stack buttons vertically */
+        flex-direction: column;
         align-items: center;
         gap: 1rem;
     }
 
     .btn {
-        width: 100%; /* Full width buttons */
-        max-width: 250px;
-        padding: 0.8rem 1.5rem;
+        width: 100%;
+        max-width: 280px;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
     }
 
     .profile-image-container {
-        width: 220px;
-        height: 220px;
+        width: 250px;
+        height: 250px;
+    }
+
+    /* Adjust square border sizes for smaller screens */
+    .image-square-border {
+        border-width: 2px; /* Ensure it stays thin */
     }
 }
